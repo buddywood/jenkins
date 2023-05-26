@@ -1,4 +1,7 @@
 authorize-project:1.4.0
 job-dsl:1.81
 workflow-aggregator:590.v6a_d052e5a_a_b_5
-git:4.11.4
+git-changelog:1.45
+git:latest
+git-client:latest
+git-server:latest
