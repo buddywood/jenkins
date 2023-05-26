@@ -12,7 +12,7 @@ pipelineJob('1kappa-job') {
             scm {
                 git {
                     remote {
-                        url 'https://github.com/buddywood/OneKappaWeb.git'
+                        url 'git@github.com:buddywood/OneKappaWeb.git'
                     }
                     branch 'master'
                 }
