@@ -14,7 +14,7 @@ pipelineJob('1kappa-job') {
                     remote {
                         url 'git@github.com:buddywood/OneKappaWeb.git'
                     }
-                    branch 'master'
+                    branch 'main'
                 }
             }
         }

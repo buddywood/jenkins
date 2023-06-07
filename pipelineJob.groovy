@@ -1,6 +1,9 @@
 pipeline {
     agent any
-    stages {
+    tools {
+        gradle 8.1
+    }
+        stages {
         stage('Build') {
             steps {
                 echo 'Build'
