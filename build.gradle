@@ -31,8 +31,15 @@ String extraPrefix = DefaultNativePlatform.getCurrentOperatingSystem().isWindows
 dockerRun {
     name "${project.name}"
     image "${project.name}:${project.version}"
-    ports '8080:8080'
+    ports '9090:8080'
     clean true
     daemonize false
-    arguments '-v', "$extraPrefix/var/run/docker.sock:/var/run/docker.sock", '--group-add', dockerSockGroupId
+    arguments '-v', "$extraPrefix/var/run/docker.sock:/var/run/docker.sock", '--group-add', '1'
+}
+
+task printCurrentUser {
+    doLast {
+        def currentUser = "whoami".execute().text.trim()
+        println "Current user: $currentUser"
+    }
 }

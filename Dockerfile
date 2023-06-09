@@ -9,10 +9,6 @@ RUN \
     echo 'America/Chicago' > /etc/timezone && \
     dpkg-reconfigure --frontend noninteractive tzdata
 
-# Install Maven on Jenkins image
-RUN apt-get update && \
-    apt-get install -y maven
-
 # Install Docker on Jenkins image
 RUN apt-get update && \
     apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release && \
@@ -44,10 +40,9 @@ COPY seedJob.xml /usr/share/jenkins/ref/jobs/seed-job/config.xml
 
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 
-USER jenkins
-
-# Install Docker as Jenkins user
 RUN apt-get update && \
-    apt-get install -y docker.io && \
+    apt-get install -y maven && \
+    groupadd docker && \
     usermod -a -G docker jenkins
 
+USER jenkins
